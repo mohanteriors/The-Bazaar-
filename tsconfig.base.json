@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@the-bazaar/ui": ["libs/ui/src/index.ts"],
+      "@the-bazaar/data-access": ["libs/data-access/src/index.ts"],
+      "@the-bazaar/schemas": ["libs/schemas/src/index.ts"],
+      "@the-bazaar/api": ["libs/api/src/index.ts"],
+      "@the-bazaar/utils": ["libs/utils/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
