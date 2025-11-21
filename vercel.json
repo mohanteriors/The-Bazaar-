@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm run build",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "outputDirectory": null,
+  "projects": [
+    {
+      "name": "the-bazaar-main-app",
+      "rootDirectory": "apps/main-app",
+      "buildCommand": "cd ../.. && pnpm nx build main-app",
+      "outputDirectory": "apps/main-app/.next"
+    },
+    {
+      "name": "the-bazaar-vendor-portal",
+      "rootDirectory": "apps/vendor-portal",
+      "buildCommand": "cd ../.. && pnpm nx build vendor-portal",
+      "outputDirectory": "apps/vendor-portal/.next"
+    },
+    {
+      "name": "the-bazaar-admin-portal",
+      "rootDirectory": "apps/admin-portal",
+      "buildCommand": "cd ../.. && pnpm nx build admin-portal",
+      "outputDirectory": "apps/admin-portal/.next"
+    }
+  ],
+  "env": {
+    "NODE_VERSION": "22"
+  },
+  "build": {
+    "env": {
+      "SKIP_ENV_VALIDATION": "1"
+    }
+  }
+}

@@ -21,14 +21,14 @@ time.
       `Category`, `Order`, `OrderItem`, `Payment`, `Payout`, `Review`, `Storefront`,
       `Notification`, `SupportTicket`, `AuditLog`, `Chat`, `Message`)
 - [x] **Task 0.2.2** – Auth & roles (Supabase Auth wiring, RLS utilities)
-- [ ] **Task 0.2.3** – API layer (tRPC/REST contracts, Fastify/Next handlers)
+- [x] **Task 0.2.3** – API layer (tRPC/REST contracts, Fastify/Next handlers)
 
 ### Phase 0.3 – Integrations, CI/CD & Observability
 
-- [ ] **Task 0.3.1** – Integration scaffolding (Stripe, Pesapal/M-Pesa, DHL/Sendy,
+- [x] **Task 0.3.1** – Integration scaffolding (Stripe, Pesapal/M-Pesa, DHL/Sendy,
       Resend, Sentry, GA4/PostHog, Supabase Storage clients)
-- [ ] **Task 0.3.2** – CI/CD pipelines (GitHub Actions, Vercel/AWS deploy flow)
-- [ ] **Task 0.3.3** – Cross-cutting concerns (structured logging, notifications,
+- [x] **Task 0.3.2** – CI/CD pipelines (GitHub Actions, Vercel/AWS deploy flow)
+- [x] **Task 0.3.3** – Cross-cutting concerns (structured logging, notifications,
       correlation IDs)
 
 ---
