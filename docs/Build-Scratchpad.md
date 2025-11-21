@@ -17,10 +17,10 @@ time.
 
 ### Phase 0.2 – Core Backend & Data Layer
 
-- [ ] **Task 0.2.1** – Prisma schema + migrations (`User`, `Vendor`, `Admin`, `Product`,
+- [x] **Task 0.2.1** – Prisma schema + migrations (`User`, `Vendor`, `Admin`, `Product`,
       `Category`, `Order`, `OrderItem`, `Payment`, `Payout`, `Review`, `Storefront`,
       `Notification`, `SupportTicket`, `AuditLog`, `Chat`, `Message`)
-- [ ] **Task 0.2.2** – Auth & roles (Supabase Auth wiring, RLS utilities)
+- [x] **Task 0.2.2** – Auth & roles (Supabase Auth wiring, RLS utilities)
 - [ ] **Task 0.2.3** – API layer (tRPC/REST contracts, Fastify/Next handlers)
 
 ### Phase 0.3 – Integrations, CI/CD & Observability
