@@ -17,10 +17,16 @@ interface Product {
 }
 
 interface UseProductsOptions {
+  search?: string;
   categoryId?: string;
   isFeatured?: boolean;
+  minPrice?: number;
+  maxPrice?: number;
+  inStockOnly?: boolean;
+  minRating?: number;
+  sortBy?: 'newest' | 'price-asc' | 'price-desc' | 'popular' | 'rating';
+  page?: number;
   limit?: number;
-  offset?: number;
 }
 
 export function useProducts(options: UseProductsOptions = {}) {
@@ -31,8 +37,19 @@ export function useProducts(options: UseProductsOptions = {}) {
     queryFn: async () => {
       let query = supabase
         .from('products')
-        .select('*')
+        .select(`
+          *,
+          vendor:vendors(
+            id,
+            businessName,
+            logo
+          ),
+          reviews(
+            rating
+          )
+        `)
         .eq('isActive', true)
+        .eq('status', 'ACTIVE')
         .order('createdAt', { ascending: false });
 
       if (options.categoryId) {
@@ -43,13 +60,51 @@ export function useProducts(options: UseProductsOptions = {}) {
         query = query.eq('isFeatured', options.isFeatured);
       }
 
-      if (options.limit) {
-        query = query.limit(options.limit);
+      // Text search
+      if (options.search) {
+        query = query.or(`name.ilike.%${options.search}%,description.ilike.%${options.search}%`);
       }
 
-      if (options.offset) {
-        query = query.range(options.offset, options.offset + (options.limit || 10) - 1);
+      // Price filters
+      if (options.minPrice !== undefined) {
+        query = query.gte('price', options.minPrice);
       }
+      if (options.maxPrice !== undefined) {
+        query = query.lte('price', options.maxPrice);
+      }
+
+      // Stock filter
+      if (options.inStockOnly) {
+        query = query.gt('stock', 0);
+      }
+
+      // Sorting
+      switch (options.sortBy) {
+        case 'price-asc':
+          query = query.order('price', { ascending: true });
+          break;
+        case 'price-desc':
+          query = query.order('price', { ascending: false });
+          break;
+        case 'popular':
+          // TODO: Implement popularity metric (views, sales, etc.)
+          query = query.order('createdAt', { ascending: false });
+          break;
+        case 'rating':
+          // Note: This is a simplified approach. For production, consider a computed column
+          query = query.order('createdAt', { ascending: false });
+          break;
+        case 'newest':
+        default:
+          query = query.order('createdAt', { ascending: false });
+      }
+
+      // Pagination
+      const page = options.page || 1;
+      const limit = options.limit || 24;
+      const from = (page - 1) * limit;
+      const to = from + limit - 1;
+      query = query.range(from, to);
 
       const { data, error } = await query;
 

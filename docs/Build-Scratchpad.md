@@ -43,9 +43,9 @@ time.
 
 ### Phase M2 – Discovery & Catalog
 
-- [ ] **M2.1** – Homepage hero, featured, promos, search entry
-- [ ] **M2.2** – Search + faceted filters (category, price, vendor rating, stock)
-- [ ] **M2.3** – Product detail pages (gallery, variants, vendor info, wishlist)
+- [x] **M2.1** – Homepage hero, featured, promos, search entry
+- [x] **M2.2** – Search + faceted filters (category, price, vendor rating, stock)
+- [x] **M2.3** – Product detail pages (gallery, variants, vendor info, wishlist)
 
 ### Phase M3 – Cart, Checkout, Payments
 
