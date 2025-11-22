@@ -1,21 +1,11 @@
 import { createClient } from '../supabase/server';
+import { UserRole, UserWithRole } from './types';
 
-export enum UserRole {
-  SHOPPER = 'SHOPPER',
-  VENDOR = 'VENDOR',
-  ADMIN = 'ADMIN',
-  SUPER_ADMIN = 'SUPER_ADMIN',
-}
-
-export interface UserWithRole {
-  id: string;
-  email: string;
-  role: UserRole;
-  status: string;
-}
+export { UserRole, UserWithRole };
 
 /**
  * Get the current authenticated user with their role
+ * Server-side only
  */
 export async function getCurrentUser(): Promise<UserWithRole | null> {
   const supabase = await createClient();

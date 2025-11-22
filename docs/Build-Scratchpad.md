@@ -37,9 +37,9 @@ time.
 
 ### Phase M1 – Shell, Routing, Auth
 
-- [ ] **M1.1** – Layout & navigation per `Main-App-Sitemap`
-- [ ] **M1.2** – Authentication & onboarding (Supabase Auth, profile completion)
-- [ ] **M1.3** – Global state & data fetching (React Query/Zustand hooks)
+- [x] **M1.1** – Layout & navigation per `Main-App-Sitemap`
+- [x] **M1.2** – Authentication & onboarding (Supabase Auth, profile completion)
+- [x] **M1.3** – Global state & data fetching (React Query/Zustand hooks)
 
 ### Phase M2 – Discovery & Catalog
 

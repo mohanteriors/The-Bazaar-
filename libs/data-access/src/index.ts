@@ -1,7 +1,10 @@
-// Supabase clients
-export * from './lib/supabase/client';
-export * from './lib/supabase/server';
-export * from './lib/supabase/middleware';
+// Supabase client (browser-safe)
+export { createClient } from './lib/supabase/client';
 
-// Auth utilities
-export * from './lib/auth/roles';
+// Auth types and enums (browser-safe)
+export { UserRole } from './lib/auth/types';
+export type { UserWithRole } from './lib/auth/types';
+
+// Note: Server-side utilities should be imported directly:
+// import { createClient } from '@the-bazaar/data-access/server';
+// import { getCurrentUser, requireAuth } from '@the-bazaar/data-access/server';
