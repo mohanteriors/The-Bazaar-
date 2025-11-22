@@ -40,9 +40,13 @@ export function ProductCard({ product }: ProductCardProps) {
       id: `${product.id}-${Date.now()}`,
       productId: product.id,
       name: product.name,
+      slug: product.slug,
       price: product.price,
+      stock: product.stock,
       quantity: 1,
       image: imageUrl,
+      vendorId: product.vendor?.id || product.vendorId || 'unknown',
+      vendorName: product.vendor?.businessName || 'Unknown Vendor',
     });
 
     // TODO: Show toast notification

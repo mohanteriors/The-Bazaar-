@@ -44,10 +44,14 @@ export function ProductInfo({ product }: ProductInfoProps) {
       id: `${product.id}-${Date.now()}`,
       productId: product.id,
       name: product.name,
+      slug: product.slug,
       price: product.price,
+      stock: product.stock,
       quantity,
       image: images[0] || '/placeholder-product.png',
       variant: selectedVariant,
+      vendorId: product.vendor?.id || product.vendorId,
+      vendorName: product.vendor?.businessName || 'Unknown Vendor',
     });
 
     setAddedToCart(true);
